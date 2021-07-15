@@ -6,15 +6,30 @@ import { StyleSheet, Text, View } from 'react-native';
 // import C3 from './componentes/comp3' //componente3 importado
 import Caixas from './componentes/caixas'
 
+// const exibir = (vp1) => {
+//   if(vp1 == true){
+//     return(<Text>Curso de React Native</Text>)
+//   }
+//   else{
+//     return(<Text> - - - </Text>)
+//   }
+// }
+
 //Componente de função
 //Com o componente externo
 export default function App() {
+  let valorExibir = true
   return (
     <View style={styles.container}>
-      <Caixas/>
+      <Caixas exibir={valorExibir}/>
       {/* <C1 curso='React Native' os='Android' cor='#f00'/> 
       <C2 curso='Desenvolvimento Mobile' os='IOS' cor='#0ff'/>
       <C3/> */}
+      {/* Exibindo direto */}
+      {valorExibir?(<Text>Curso de React Native</Text>):(<Text> - - - </Text>)}
+      {/* Maneira simples de fazer uma condição, se for false nem vai fazer nada. Mas caso for true vai parar no começo */}
+      {valorExibir && (<Text>Curso de React Native</Text>)}
+      {/* {exibir(true)} */}
     </View>
   );
 }
