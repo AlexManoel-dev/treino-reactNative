@@ -2,13 +2,14 @@
 import React, {useState} from 'react';
 import { StyleSheet, Text, View, SafeAreaView, Image, Button, Alert, ImageBackground, KeyboardAvoidingView, TouchableOpacity } from 'react-native';
 import CT from './componentes/caixaDeTexto'
+import Rolagem from './componentes/rolagem'
 
 export default function App() {
   return (
     <SafeAreaView style={styles.container}>
       <Text>CFB Cursos</Text>
       <Text>Curso de React Native</Text>
-      <CT/>
+      <Rolagem/>
     </SafeAreaView>
   );
 }
