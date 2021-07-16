@@ -7,7 +7,7 @@ const img = './assets/bgApp.png'
 
 export default function App() {
 
-  const [ligado,setLigado] = useState(false)
+  const [ligado,setLigado] = useState(true)
 
   return (
     <View style={styles.container}>
@@ -16,17 +16,20 @@ export default function App() {
         <Fl/>
       </ImageBackground> */}
       <Button 
-        title={ligado?'Desligar':'Ligar'}
+        title={'Textinho'}
+        // title={ligado?'Desligar':'Ligar'}
         onPress={()=>setLigado(!ligado)}
       />
           
       {ligado?
-        <View>
+        <View style={styles.testeView}>
           <Text>CFB Cursos</Text>
           <Text>Curso de React Native</Text>
         </View>  
         :
-        <Text> * * * </Text>
+        <View style={styles.testeView2}>
+          <Text> * * * </Text>
+        </View>
       }
     </View>
   );
@@ -48,5 +51,23 @@ const styles = StyleSheet.create({
     flex: 1,
     resizeMode: 'cover',
     width: '100%'
+  },
+  testeView: {
+    backgroundColor: '#0ff',
+    color: '#fff',
+    marginTop: 10,
+    width: '100%',
+    justifyContent: 'center',
+    alignItems: 'center',
+    flex: 1
+  },
+  testeView2: {
+    backgroundColor: '#ff0',
+    color: '#fff',
+    marginTop: 10,
+    width: '100%',
+    justifyContent: 'center',
+    alignItems: 'center',
+    flex: 1
   }
 });
