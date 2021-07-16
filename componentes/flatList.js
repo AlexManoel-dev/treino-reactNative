@@ -21,6 +21,26 @@ const produtos = [
     {
         id:'005',
         desc:['SSD', '250.00']
+    },
+    {
+        id:'006',
+        desc:['Processador', '1.000.00']
+    },
+    {
+        id:'007',
+        desc:['Placa de Vídeo', '2.000.00']
+    },
+    {
+        id:'008',
+        desc:['Placa Mãe', '500.00']
+    },
+    {
+        id:'009',
+        desc:['Memória RAM', '600.00']
+    },
+    {
+        id:'010',
+        desc:['Mousepad', '100.00']
     }
 ]
 
@@ -41,7 +61,8 @@ const styles = StyleSheet.create({
         backgroundColor: '#008',
         padding: 15,
         marginVertical: 8,
-        marginHorizontal: 16
+        marginHorizontal: 16,
+        borderRadius: 15
     },
     prod: {
         fontSize: 20,
