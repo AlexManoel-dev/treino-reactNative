@@ -1,45 +1,58 @@
 // import React, { Component } from 'react';
 import React, {useState} from 'react';
 import { StyleSheet, Text, View, SafeAreaView, Image, Button, Alert, ImageBackground, KeyboardAvoidingView, TouchableOpacity, StatusBar } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native'
+import { createStackNavigator } from '@react-navigation/stack'
 
+const Pilha = createStackNavigator()
 
-export default function App() {
+function TelaHome({navigation}){
+  return(
+    <View style={{flex:1,alignItems:'center',justifyContent:'center'}}>
+      <Text>Tela Home</Text>
+      <TouchableOpacity 
+        onPress={()=>navigation.navigate('Canal')}
+      >
+        <Text>Tela Canal</Text>
+      </TouchableOpacity>
+    </View>
+  )
+}
 
-  const [cor,setCor] = useState('black')
-  const mudaCor = (c) =>{
-    setCor(c)
-  }
-
-  return (
-    <SafeAreaView style={styles.container}>
-      <StatusBar 
-        backgroundColor={cor} 
-        barStyle='default'
-        hidden={false}
-        animated={true}
-        networkActivityIndicatorVisible={false} //retira o indicador de internet
-        translucent={true} //deixa a barra transparente
-      />
-      <Text>CFB Cursos</Text>
-      <Text>Curso de React Native</Text>
-      <TouchableOpacity onPress={()=>{
-        mudaCor('red')
-      }}>
-        <Text>Vermelho</Text>  
+function TelaCanal({navigation}){
+  return(
+    <View style={{flex:1,alignItems:'center',justifyContent:'center'}}>
+      <Text>Tela Canal</Text>
+      <TouchableOpacity 
+        onPress={()=>navigation.navigate('Home')}
+      >
+        <Text>Tela Home</Text>
       </TouchableOpacity>
       
-      <TouchableOpacity onPress={()=>{
-        mudaCor('blue')
-      }}>
-        <Text>Azul</Text>  
-      </TouchableOpacity>
+      <Button
+        title='Voltar'
+        onPress={()=>navigation.goBack()}
+      />
+    </View>
+  )
+}
 
-      <TouchableOpacity onPress={()=>{
-        mudaCor('green')
-      }}>
-        <Text>Verde</Text>  
-      </TouchableOpacity>
-    </SafeAreaView>
+export default function App() {
+  return (
+    <NavigationContainer>
+      <Pilha.Navigator initialRouteName='TelaHome'>
+        <Pilha.Screen
+          name='Home'
+          component={TelaHome}
+          options={{title:'Tela Inicial'}}
+        />
+        <Pilha.Screen
+          name='Canal'
+          component={TelaCanal}
+          options={{title:'Tela Canal'}}
+        />
+      </Pilha.Navigator>
+    </NavigationContainer>
   );
 }
 
