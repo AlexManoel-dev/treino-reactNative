@@ -1,17 +1,33 @@
 // import React, { Component } from 'react';
-import React from 'react';
-import { StyleSheet, Text, View, Image, Button, Alert, ImageBackground, KeyboardAvoidingView } from 'react-native';
+import React, {useState} from 'react';
+import { StyleSheet, Text, View, Image, Button, Alert, ImageBackground, KeyboardAvoidingView, TouchableOpacity } from 'react-native';
 import Fl from './componentes/flatList'
 
 const img = './assets/bgApp.png'
 
 export default function App() {
+
+  const [ligado,setLigado] = useState(false)
+
   return (
     <View style={styles.container}>
-        <ImageBackground source={require(img)} style={styles.imagemFundo}>
+        {/* <ImageBackground source={require(img)} style={styles.imagemFundo}>
         <Text>Usando FlatList</Text>
         <Fl/>
-      </ImageBackground>
+      </ImageBackground> */}
+      <Button 
+        title={ligado?'Desligar':'Ligar'}
+        onPress={()=>setLigado(!ligado)}
+      />
+          
+      {ligado?
+        <View>
+          <Text>CFB Cursos</Text>
+          <Text>Curso de React Native</Text>
+        </View>  
+        :
+        <Text> * * * </Text>
+      }
     </View>
   );
 }
