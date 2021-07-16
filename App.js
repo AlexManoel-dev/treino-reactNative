@@ -1,14 +1,44 @@
 // import React, { Component } from 'react';
 import React, {useState} from 'react';
-import { StyleSheet, Text, View, SafeAreaView, Image, Button, Alert, ImageBackground, KeyboardAvoidingView, TouchableOpacity } from 'react-native';
-import Rl from './componentes/rolagem'
+import { StyleSheet, Text, View, SafeAreaView, Image, Button, Alert, ImageBackground, KeyboardAvoidingView, TouchableOpacity, StatusBar } from 'react-native';
+
 
 export default function App() {
+
+  const [cor,setCor] = useState('black')
+  const mudaCor = (c) =>{
+    setCor(c)
+  }
+
   return (
     <SafeAreaView style={styles.container}>
+      <StatusBar 
+        backgroundColor={cor} 
+        barStyle='default'
+        hidden={false}
+        animated={true}
+        networkActivityIndicatorVisible={false} //retira o indicador de internet
+        translucent={true} //deixa a barra transparente
+      />
       <Text>CFB Cursos</Text>
       <Text>Curso de React Native</Text>
-      <Rl/>
+      <TouchableOpacity onPress={()=>{
+        mudaCor('red')
+      }}>
+        <Text>Vermelho</Text>  
+      </TouchableOpacity>
+      
+      <TouchableOpacity onPress={()=>{
+        mudaCor('blue')
+      }}>
+        <Text>Azul</Text>  
+      </TouchableOpacity>
+
+      <TouchableOpacity onPress={()=>{
+        mudaCor('green')
+      }}>
+        <Text>Verde</Text>  
+      </TouchableOpacity>
     </SafeAreaView>
   );
 }
