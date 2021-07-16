@@ -1,15 +1,14 @@
 // import React, { Component } from 'react';
 import React, {useState} from 'react';
 import { StyleSheet, Text, View, SafeAreaView, Image, Button, Alert, ImageBackground, KeyboardAvoidingView, TouchableOpacity } from 'react-native';
-import Carro2 from './componentes/carro2'
+import CT from './componentes/caixaDeTexto'
 
 export default function App() {
   return (
     <SafeAreaView style={styles.container}>
       <Text>CFB Cursos</Text>
       <Text>Curso de React Native</Text>
-      <Carro2 nome='Polo'/>
-      <Carro2 nome='Fit'/>
+      <CT/>
     </SafeAreaView>
   );
 }
