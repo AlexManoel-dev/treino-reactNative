@@ -2,35 +2,20 @@
 import React, {useState} from 'react';
 import { StyleSheet, Text, View, Image, Button, Alert, ImageBackground, KeyboardAvoidingView, TouchableOpacity } from 'react-native';
 import Fl from './componentes/flatList'
+import Carro from './componentes/carro'
+import Carro2 from './componentes/carro2'
 
 const img = './assets/bgApp.png'
 
 export default function App() {
-
-  const [ligado,setLigado] = useState(true)
-
   return (
     <View style={styles.container}>
-        {/* <ImageBackground source={require(img)} style={styles.imagemFundo}>
-        <Text>Usando FlatList</Text>
-        <Fl/>
-      </ImageBackground> */}
-      <Button 
-        title={'Textinho'}
-        // title={ligado?'Desligar':'Ligar'}
-        onPress={()=>setLigado(!ligado)}
-      />
-          
-      {ligado?
-        <View style={styles.testeView}>
-          <Text>CFB Cursos</Text>
-          <Text>Curso de React Native</Text>
-        </View>  
-        :
-        <View style={styles.testeView2}>
-          <Text> * * * </Text>
-        </View>
-      }
+      <Text>CFB Cursos</Text>
+      <Text>Curso de React Native</Text>
+      <Carro nome='Golf'/>
+      <Carro nome='HRV'/>
+      <Carro2 nome='Polo'/>
+      <Carro2 nome='Fit'/>
     </View>
   );
 }
