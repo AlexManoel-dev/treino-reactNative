@@ -15,7 +15,7 @@ export default class Carro extends Component{
                     title={this.state.ligado? 'Desligar' : 'Ligar'}
                     onPress={
                         ()=>{
-                            !this.setState({ligado:!this.state.ligado})
+                            this.setState({ligado:!this.state.ligado})
                         }
                     }
                 />

@@ -1,22 +1,16 @@
 // import React, { Component } from 'react';
 import React, {useState} from 'react';
-import { StyleSheet, Text, View, Image, Button, Alert, ImageBackground, KeyboardAvoidingView, TouchableOpacity } from 'react-native';
-import Fl from './componentes/flatList'
-import Carro from './componentes/carro'
+import { StyleSheet, Text, View, SafeAreaView, Image, Button, Alert, ImageBackground, KeyboardAvoidingView, TouchableOpacity } from 'react-native';
 import Carro2 from './componentes/carro2'
-
-const img = './assets/bgApp.png'
 
 export default function App() {
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <Text>CFB Cursos</Text>
       <Text>Curso de React Native</Text>
-      <Carro nome='Golf'/>
-      <Carro nome='HRV'/>
       <Carro2 nome='Polo'/>
       <Carro2 nome='Fit'/>
-    </View>
+    </SafeAreaView>
   );
 }
 
