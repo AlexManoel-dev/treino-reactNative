@@ -1,14 +1,14 @@
 // import React, { Component } from 'react';
 import React, {useState} from 'react';
 import { StyleSheet, Text, View, SafeAreaView, Image, Button, Alert, ImageBackground, KeyboardAvoidingView, TouchableOpacity } from 'react-native';
-import Modal from './componentes/modal'
+import Rl from './componentes/rolagem'
 
 export default function App() {
   return (
     <SafeAreaView style={styles.container}>
       <Text>CFB Cursos</Text>
       <Text>Curso de React Native</Text>
-      <Modal/>
+      <Rl/>
     </SafeAreaView>
   );
 }
