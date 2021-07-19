@@ -40,7 +40,7 @@ function TelaCanal({navigation}){
 export default function App() {
   return (
     <NavigationContainer>
-      <Pilha.Navigator initialRouteName='TelaHome'>
+      <Pilha.Navigator initialRouteName='TelaHome' headerMode='none'>
         <Pilha.Screen
           name='Home'
           component={TelaHome}
