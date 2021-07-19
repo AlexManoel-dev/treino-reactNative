@@ -15,6 +15,13 @@ function TelaHome({navigation}){
       >
         <Text>Tela Canal</Text>
       </TouchableOpacity>
+
+      <TouchableOpacity 
+        onPress={()=>navigation.navigate('Cursos')}
+      >
+        <Text>Tela Cursos</Text>
+      </TouchableOpacity>
+
     </View>
   )
 }
@@ -37,6 +44,56 @@ function TelaCanal({navigation}){
   )
 }
 
+function TelaCursos({navigation}){
+  return(
+    <View style={{flex:1,alignItems:'center',justifyContent:'center'}}>
+      <Text>Tela Cursos</Text>
+      <TouchableOpacity 
+        onPress={()=>navigation.navigate('CursoReactNative',{
+          aulas:100,autor:'Bruno'
+        })}
+      >
+        <Text>React Native</Text>
+      </TouchableOpacity>
+      
+      <Button
+        title='Voltar'
+        onPress={()=>navigation.goBack()}
+      />
+    </View>
+  )
+}
+
+function TelaCursoReactNative({route,navigation}){
+
+  const {aulas} = route.params
+  const {autor} = route.params
+
+  return(
+    <View style={{flex:1,alignItems:'center',justifyContent:'center'}}>
+      <Text>Curso de React Native</Text>
+      <Text>Aulas: {aulas}</Text>
+      <Text>Autor: {autor}</Text>
+      <TouchableOpacity 
+        onPress={()=>navigation.navigate('Home')}
+      >
+        <Text>React Home</Text>
+      </TouchableOpacity>
+      
+      <TouchableOpacity 
+        onPress={()=>navigation.goBack()}
+      >
+        <Text>Voltar</Text>
+      </TouchableOpacity>
+
+      <Button
+        title='Voltar'
+        onPress={()=>navigation.goBack()}
+      />
+    </View>
+  )
+}
+
 export default function App() {
   return (
     <NavigationContainer>
@@ -50,6 +107,16 @@ export default function App() {
           name='Canal'
           component={TelaCanal}
           options={{title:'Tela Canal'}}
+        />
+        <Pilha.Screen
+          name='Cursos'
+          component={TelaCursos}
+          options={{title:'Tela Cursos'}}
+        />
+        <Pilha.Screen
+          name='CursoReactNative'
+          component={TelaCursoReactNative}
+          options={{title:'Tela Cursos'}}
         />
       </Pilha.Navigator>
     </NavigationContainer>
