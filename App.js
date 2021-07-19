@@ -97,16 +97,42 @@ function TelaCursoReactNative({route,navigation}){
 export default function App() {
   return (
     <NavigationContainer>
-      <Pilha.Navigator initialRouteName='TelaHome' headerMode='none'>
+      <Pilha.Navigator initialRouteName='TelaHome'>
         <Pilha.Screen
           name='Home'
           component={TelaHome}
-          options={{title:'Tela Inicial'}}
+          options={{
+            title:'Tela Inicial',
+            headerStyle:{
+              backgroundColor: '#008'
+            },
+            headerTintColor: '#fff',
+            headerRight:()=>(
+              <Button
+                title='Cursos'
+                color='black'
+                onPress={
+                  () => {
+                    alert('Botão Cursos Clicado')
+                  }
+                }
+              />
+            )
+          }}
         />
         <Pilha.Screen
           name='Canal'
           component={TelaCanal}
-          options={{title:'Tela Canal'}}
+          options={{
+            title:'Tela Canal',
+            headerStyle:{
+              backgroundColor: '#008'
+            },
+            headerTintColor: '#fff',
+            headerTitleStyle:{
+              fontWeight: 'bold'
+            }
+          }}
         />
         <Pilha.Screen
           name='Cursos'
