@@ -3,9 +3,12 @@ import React, {useState} from 'react';
 import { StyleSheet, Text, View, SafeAreaView, Image, Button, Alert, ImageBackground, KeyboardAvoidingView, TouchableOpacity, StatusBar } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native'
 // import { createStackNavigator } from '@react-navigation/stack'
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
+// import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
+import { createDrawerNavigator } from '@react-navigation/drawer'
+import TelaCanal from './componentes/TelaCanal'
+// import TelaCanalE from './componentes/TelaCanal'
 
-const Guias = createBottomTabNavigator()
+const Gavetas = createDrawerNavigator()
 
 function TelaHome({navigation}){
   return(
@@ -15,13 +18,12 @@ function TelaHome({navigation}){
   )
 }
 
-function TelaCanal({navigation}){
-  return(
-    <View style={{flex:1,alignItems:'center',justifyContent:'center'}}>
-      <Text>Tela Canal</Text>
-    </View>
-  )
-}
+// Posso fazer assim, caso queria passar propriedades, como props, navigation e etc. Ou passando o nome do import direto para o navigator
+// function TelaCanal({navigation}){
+//   return(
+//     <TelaCanalE/>
+//   )
+// }
 
 function TelaCursos({navigation}){
   return(
@@ -34,8 +36,8 @@ function TelaCursos({navigation}){
 export default function App() {
   return (
     <NavigationContainer>
-      <Guias.Navigator initialRouteName='TelaHome'>
-        <Guias.Screen
+      <Gavetas.Navigator initialRouteName='TelaHome'>
+        <Gavetas.Screen
           name='Home'
           component={TelaHome}
           options={{
@@ -57,7 +59,7 @@ export default function App() {
             )
           }}
         />
-        <Guias.Screen
+        <Gavetas.Screen
           name='Canal'
           component={TelaCanal}
           options={{
@@ -71,12 +73,12 @@ export default function App() {
             }
           }}
         />
-        <Guias.Screen
+        <Gavetas.Screen
           name='Cursos'
           component={TelaCursos}
           options={{title:'Tela Cursos'}}
         />
-      </Guias.Navigator>
+      </Gavetas.Navigator>
     </NavigationContainer>
   );
 }
